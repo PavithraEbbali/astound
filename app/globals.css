@@ -1,0 +1,270 @@
+/* =========================================================================
+   Design system for this site.
+   Unique token namespace (cw-*) to keep CSS distinct and maintainable.
+   ========================================================================= */
+
+:root {
+  /* Brand palette (derived from partner identity, reworked for this site) */
+  --cw-violet: #483092;
+  --cw-violet-600: #5a3fb0;
+  --cw-violet-300: #8f7ce0;
+  --cw-lime: #3ab54a;
+  --cw-lime-300: #69d97a;
+  --cw-green: #3ab54a;
+  --cw-green-600: #2f9e3f;
+  --cw-green-700: #258233;
+  --cw-ink: #1d1f20;
+  --cw-ink-soft: #2a2d30;
+  --cw-paper: #ffffff;
+  --cw-mist: #f5f4fb;
+  --cw-mist-2: #eceaf7;
+  --cw-line: #e3e0f0;
+  --cw-muted: #5b5870;
+
+  /* Gradients */
+  --cw-grad-brand: linear-gradient(120deg, var(--cw-violet) 0%, var(--cw-violet-600) 55%, var(--cw-lime) 140%);
+  --cw-grad-green: linear-gradient(135deg, #3ab54a 0%, #2fa040 100%);
+  --cw-grad-vg: linear-gradient(120deg, var(--cw-violet) 0%, var(--cw-green) 130%);
+  --cw-grad-glow: radial-gradient(circle at 30% 20%, rgba(143, 124, 224, 0.35), transparent 60%);
+  --cw-shadow-green: 0 16px 36px -14px rgba(58, 181, 74, 0.5);
+
+  /* Type */
+  --cw-font-display: var(--font-display), "Sora", system-ui, sans-serif;
+  --cw-font-body: var(--font-body), "Inter", system-ui, sans-serif;
+
+  /* Rhythm */
+  --cw-radius: 18px;
+  --cw-radius-lg: 28px;
+  --cw-shadow-sm: 0 2px 10px rgba(29, 31, 32, 0.06);
+  --cw-shadow-md: 0 18px 50px -20px rgba(72, 48, 146, 0.35);
+  --cw-shadow-lg: 0 40px 90px -30px rgba(72, 48, 146, 0.45);
+  --cw-maxw: 1200px;
+  --cw-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--cw-paper);
+  color: var(--cw-ink);
+  font-family: var(--cw-font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--cw-font-display);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0;
+  font-weight: 700;
+}
+
+a { color: inherit; text-decoration: none; }
+img, svg, canvas { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ---- Layout helpers ---- */
+.cw-shell { width: min(100% - 2.5rem, var(--cw-maxw)); margin-inline: auto; }
+.cw-section { padding: clamp(2.5rem, 5vw, 4.5rem) 0; position: relative; }
+
+.cw-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--cw-font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cw-violet);
+  background: var(--cw-mist-2);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+}
+
+.cw-h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); }
+.cw-lead { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--cw-muted); max-width: 56ch; }
+
+/* ---- Buttons ---- */
+.cw-btn {
+  --b: var(--cw-grad-brand);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--cw-font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 0;
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.25s var(--cw-ease), box-shadow 0.25s var(--cw-ease);
+  will-change: transform;
+}
+/* Primary action = Astound's signature green */
+.cw-btn--primary { background: var(--cw-grad-green); color: #fff; box-shadow: var(--cw-shadow-green); }
+.cw-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 22px 50px -18px rgba(58, 181, 74, 0.6); }
+.cw-btn--violet { background: var(--cw-grad-brand); color: #fff; box-shadow: var(--cw-shadow-md); }
+.cw-btn--violet:hover { transform: translateY(-2px); box-shadow: var(--cw-shadow-lg); }
+.cw-btn:active { transform: translateY(0) scale(0.97); transition-duration: 0.08s; }
+.cw-btn--ghost {
+  background: transparent;
+  color: var(--cw-ink);
+  border: 1.5px solid var(--cw-line);
+}
+.cw-btn--ghost:hover { border-color: var(--cw-violet-300); background: var(--cw-mist); }
+
+/* gradient text — with a slow flowing light sweep */
+.cw-grad-text {
+  background: var(--cw-grad-brand);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cwGradFlow 7s var(--cw-ease) infinite;
+}
+.cw-green-text {
+  background: var(--cw-grad-green);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cwGradFlow 7s var(--cw-ease) infinite;
+}
+@keyframes cwGradFlow {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cw-grad-text, .cw-green-text { animation: none; }
+}
+
+/* CTA icon micro-interactions */
+.cw-cta-arrow { display: inline-flex; transition: transform 0.25s var(--cw-ease); }
+.cw-btn:hover .cw-cta-arrow { transform: translateX(4px); }
+.cw-cta-spark { display: inline-flex; transition: transform 0.4s var(--cw-ease); }
+.cw-btn:hover .cw-cta-spark { transform: rotate(90deg) scale(1.12); }
+
+/* utility for visually-hidden but screen-reader text (AEO/a11y) */
+.cw-sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* card baseline */
+.cw-card {
+  background: var(--cw-paper);
+  border: 1px solid var(--cw-line);
+  border-radius: var(--cw-radius-lg);
+  box-shadow: var(--cw-shadow-sm);
+}
+
+/* =========================================================================
+   21st.dev-style reusable primitives (border beam · spotlight · shimmer)
+   ========================================================================= */
+
+/* Animated conic border beam — fades in on hover */
+@property --cw-beam2 { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.cw-beam { position: relative; }
+.cw-beam::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.6px;
+  background: conic-gradient(from var(--cw-beam2),
+    transparent 0deg, var(--cw-violet) 55deg, var(--cw-green) 110deg, transparent 165deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; pointer-events: none; transition: opacity 0.45s var(--cw-ease);
+  animation: cwBeam2 5s linear infinite;
+}
+.cw-beam:hover::before { opacity: 1; }
+@keyframes cwBeam2 { to { --cw-beam2: 360deg; } }
+
+/* Cursor/centre spotlight glow on hover (set --mx/--my for cursor-follow) */
+.cw-spot { position: relative; }
+.cw-spot::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 0;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(72, 48, 146, 0.10), transparent 60%);
+  opacity: 0; transition: opacity 0.45s var(--cw-ease);
+}
+.cw-spot:hover::after { opacity: 1; }
+.cw-spot > * { position: relative; z-index: 1; }
+
+/* Periodic light-sweep shimmer for premium buttons */
+.cw-shimmer { position: relative; overflow: hidden; }
+.cw-shimmer::after {
+  content: ""; position: absolute; top: 0; left: -160%; width: 55%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-20deg); pointer-events: none; animation: cwShine 3.6s ease-in-out infinite;
+}
+@keyframes cwShine { 0% { left: -160%; } 55%, 100% { left: 160%; } }
+
+/* Upgraded eyebrow — pill with leading pulse dot */
+.cw-eyebrow {
+  border: 1px solid var(--cw-line);
+  box-shadow: var(--cw-shadow-sm);
+}
+.cw-eyebrow::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--cw-green);
+  box-shadow: 0 0 0 0 rgba(58, 181, 74, 0.5); animation: cwEyePing 1.9s ease-out infinite;
+}
+@keyframes cwEyePing {
+  0% { box-shadow: 0 0 0 0 rgba(58, 181, 74, 0.5); }
+  100% { box-shadow: 0 0 0 9px rgba(58, 181, 74, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-beam::before, .cw-shimmer::after, .cw-eyebrow::before { animation: none; }
+}
+
+/* accessible focus rings (keyboard only) */
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--cw-violet);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* selection */
+::selection { background: var(--cw-violet); color: #fff; }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-thumb { background: var(--cw-violet-300); border-radius: 99px; border: 3px solid #fff; }
+
+/* ---- Lenis smooth scroll support ---- */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* Section eyebrows wrap to two lines on narrow screens; ease them down. */
+@media (max-width: 620px) {
+  .cw-eyebrow { font-size: 0.66rem; letter-spacing: 0.06em; padding: 0.4rem 0.8rem; }
+  .cw-h2 { font-size: clamp(1.75rem, 7.5vw, 2.4rem); }
+  .cw-lead { font-size: 0.98rem; }
+  .cw-section { padding: clamp(2rem, 7vw, 3rem) 0; }
+  .cw-shell { width: min(100% - 2rem, var(--cw-maxw)); }
+}

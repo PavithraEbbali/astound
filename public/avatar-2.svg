@@ -1,0 +1,11 @@
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Customer avatar">
+  <defs><clipPath id="a2"><circle cx="40" cy="40" r="40"/></clipPath></defs>
+  <g clip-path="url(#a2)">
+    <rect width="80" height="80" fill="#E6F4E8"/>
+    <ellipse cx="40" cy="80" rx="27" ry="19" fill="#2F9E3F"/>
+    <rect x="34" y="45" width="12" height="15" rx="6" fill="#C68642"/>
+    <path d="M23 36 a17 17 0 0 1 34 0 q-17 -9 -34 0 z" fill="#1A1320"/>
+    <circle cx="40" cy="33" r="17" fill="#1A1320"/>
+    <circle cx="40" cy="36" r="14" fill="#C68642"/>
+  </g>
+</svg>

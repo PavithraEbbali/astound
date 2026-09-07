@@ -1,0 +1,77 @@
+/* Premium dark legal/compliance pages — hero + sticky TOC + numbered icon cards */
+.wrap {
+  background:
+    radial-gradient(70% 60% at 50% -5%, rgba(72, 48, 146, 0.55), transparent 70%),
+    var(--cw-ink);
+  color: rgba(255, 255, 255, 0.7);
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+/* ---- Hero ---- */
+.hero { text-align: center; padding: clamp(3rem, 7vw, 6rem) 1.25rem clamp(2.5rem, 5vw, 4rem); }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--cw-font-display); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--cw-violet-300);
+  background: rgba(143, 124, 224, 0.12); border: 1px solid rgba(143, 124, 224, 0.3);
+  padding: 0.45rem 0.95rem; border-radius: 999px;
+}
+.eyebrowDot { width: 7px; height: 7px; border-radius: 50%; background: var(--cw-green); box-shadow: 0 0 0 0 rgba(58, 181, 74, 0.5); animation: lgPing 1.9s ease-out infinite; }
+@keyframes lgPing { 0% { box-shadow: 0 0 0 0 rgba(58, 181, 74, 0.5); } 100% { box-shadow: 0 0 0 9px rgba(58, 181, 74, 0); } }
+.htitle { font-family: var(--cw-font-display); font-weight: 800; color: #fff; font-size: clamp(2.4rem, 7vw, 4.5rem); letter-spacing: -0.035em; margin: 1.3rem 0 0; line-height: 1.02; }
+.intro { max-width: 60ch; margin: 1.5rem auto 0; color: rgba(255, 255, 255, 0.62); font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.6; }
+.date { margin-top: 1.3rem; font-size: 0.84rem; color: rgba(255, 255, 255, 0.42); }
+
+/* ---- Layout: TOC + cards ---- */
+.layout {
+  width: min(100% - 2.5rem, 1140px); margin: 2.5rem auto 0;
+  display: grid; grid-template-columns: 250px 1fr; gap: 3rem; align-items: start;
+}
+@media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 1.5rem; } .toc { position: static !important; } }
+
+/* ---- TOC ---- */
+.toc { position: sticky; top: 92px; }
+.tocLabel { font-family: var(--cw-font-display); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); margin: 0 0 1rem; }
+.toc ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.15rem; }
+.toc a {
+  display: block; padding: 0.5rem 0.85rem; border-radius: 9px; font-size: 0.85rem; line-height: 1.4;
+  color: rgba(255, 255, 255, 0.55); border-left: 2px solid transparent;
+  transition: color 0.2s var(--cw-ease), background 0.2s var(--cw-ease), border-color 0.2s var(--cw-ease);
+}
+.toc a:hover { color: #fff; background: rgba(255, 255, 255, 0.04); }
+.tocActive { color: #fff !important; background: rgba(143, 124, 224, 0.12) !important; border-left-color: var(--cw-green) !important; }
+.tocNum { color: var(--cw-violet-300); font-weight: 700; }
+
+/* ---- Cards ---- */
+.cards { display: grid; gap: 1.2rem; }
+.lead { color: rgba(255, 255, 255, 0.62); font-size: 1.02rem; line-height: 1.65; }
+.lcard {
+  position: relative; display: grid; grid-template-columns: auto 1fr; gap: 1.2rem;
+  padding: 1.7rem 1.9rem; border-radius: 16px; scroll-margin-top: 100px;
+  background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s var(--cw-ease), background 0.3s var(--cw-ease), transform 0.3s var(--cw-ease), box-shadow 0.3s var(--cw-ease);
+}
+.lcard:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(143, 124, 224, 0.4); transform: translateY(-3px); box-shadow: 0 24px 50px -28px rgba(0, 0, 0, 0.8); }
+.lcardIcon {
+  width: 46px; height: 46px; border-radius: 12px; flex: none; display: grid; place-items: center;
+  background: rgba(72, 48, 146, 0.3); color: var(--cw-violet-300);
+  transition: transform 0.4s var(--cw-ease), background 0.4s var(--cw-ease), color 0.4s var(--cw-ease);
+}
+.lcard:hover .lcardIcon { transform: rotate(-8deg) scale(1.08); background: var(--cw-grad-brand); color: #fff; }
+.lcardBody { min-width: 0; }
+.lcardTitle { font-family: var(--cw-font-display); font-weight: 700; color: #fff; font-size: 1.25rem; margin: 0 0 0.7rem; letter-spacing: -0.02em; }
+.lcardNum { color: var(--cw-green); }
+
+/* Inherited content styling inside a card */
+.lcardBody h3 { color: #fff; font-size: 1.02rem; margin: 1.3rem 0 0.5rem; font-family: var(--cw-font-display); }
+.lcardBody p { color: rgba(255, 255, 255, 0.62); margin: 0 0 0.9rem; line-height: 1.7; font-size: 0.96rem; }
+.lcardBody p:last-child { margin-bottom: 0; }
+.lcardBody ul { color: rgba(255, 255, 255, 0.62); padding-left: 1.2rem; margin: 0 0 1rem; display: grid; gap: 0.45rem; font-size: 0.96rem; }
+.lcardBody li::marker { color: var(--cw-green); }
+.lcardBody strong { color: rgba(255, 255, 255, 0.92); }
+.lcardBody a { color: var(--cw-lime-300); font-weight: 500; position: relative; transition: color 0.2s; }
+.lcardBody a:hover { color: #fff; }
+
+/* legacy classes kept harmless in case any page references them */
+.crumb, .updated, .notice, .body, .back, .title { color: inherit; }

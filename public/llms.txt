@@ -1,0 +1,70 @@
+# Independent Authorized Astound Broadband Reseller
+
+> NOTE FOR THE OPERATOR: the entity name, phone number, address and staffed
+> hours on this site are unresolved placeholders (see lib/site.ts, brief §8).
+> Update this file at the same time you fill those in. Run
+> `npm run lint:copy:strict` — it must pass before launch.
+
+> This site is operated by an INDEPENDENT, authorized reseller of Astound
+> Broadband. It is NOT Astound Broadband, and it is NOT the official Astound
+> website. Astound Broadband is a d/b/a of Radiate HoldCo, LLC, which owns the
+> brand and operates the network. The reseller helps households compare and
+> order Astound plans by phone, at no added cost to the customer.
+
+## What can be ordered here
+- Internet: Astound's fiber-powered plans. Astound states fiber-powered
+  internet is available in selected locations and availability varies by area.
+- TV: through Astound's DIRECTV partnership (live TV over the Astound internet
+  connection, no satellite dish, DIRECTV Gemini device, 2-year price
+  guarantee, requires Astound Internet and at least 100 Mbps). Astound also
+  sells its own Astound TV product, powered by TiVo.
+- Mobile: Astound Mobile. Requires an active Astound Internet line.
+- Home Phone: Astound Nationwide Calling.
+
+## Pricing
+- Gig Internet, 1,000 Mbps: $45/mo, Price for Life.
+- 1.5 Gig Internet, 1,500 Mbps: $65/mo, Price for Life.
+- Home Phone, Astound Nationwide Calling: from $9.99/mo.
+- eero Plus: $9.99/mo, requires Whole Home WiFi powered by eero.
+- Astound publishes no national price for TV or for Astound TV.
+- Whole Home WiFi powered by eero is included with 2 Gig+ service. On lower
+  speeds it is a paid add-on; Astound publishes conflicting figures for it
+  across its own pages, so no rate is stated here.
+- Rates reflect Astound's autopay and e-bill discount with ACH enrollment and
+  exclude taxes, surcharges and fees. Astound prices by market: the rate at a
+  given address may differ.
+
+## Fees and terms
+- One-time activation fee: $14.99, in addition to any installation fee.
+- Self-installation: free for new internet service where available. If
+  unavailable or unsuccessful, a $99.95 professional installation fee may
+  apply; free with a valid coupon code.
+- 30-Day Money-Back Guarantee: new residential customers who cancel within 30
+  days of install. Maximum refund is one month's recurring service and
+  equipment fees, issued within 60 days if all conditions are met. Excludes
+  usage-based fees.
+- Price for Life: Astound's rate-lock program on select Gig+ fiber plans. No
+  contract, no cancellation penalty. Does not cover taxes, surcharges, fees or
+  one-time charges.
+- Astound Mobile: maximum 5 lines per account. After 20GB, unlimited plans
+  slow to 768 Kbps. No rollover data; additional data $10/GB. The
+  introductory offer is one unlimited line as a monthly bill credit for 12
+  months.
+
+## Coverage
+California, Illinois, Indiana, Maryland, Massachusetts, New York, Oregon,
+Pennsylvania, Texas, Virginia, Washington, and the DC Metro area. Presence in
+a listed area does not mean service reaches a specific address; Astound
+determines serviceability address by address.
+
+## Availability checking
+This site ships no backend and performs no serviceability lookup. The ZIP
+field captures a ZIP and routes the visitor to the order line. It makes no
+availability claim in either direction.
+
+## Trademarks
+Astound, Astound Broadband and related marks are trademarks of Radiate
+HoldCo, LLC or its affiliates.
+©2026 DIRECTV. DIRECTV and all other DIRECTV marks are trademarks of
+DIRECTV, LLC.
+eero is a trademark of Amazon.com, Inc. or its affiliates.

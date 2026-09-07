@@ -1,0 +1,14 @@
+# COPY ALLOWLIST
+#
+# Exact strings permitted verbatim. Any source line containing one of
+# these is exempt from the banned-voice scan in scripts/lint-copy.mjs.
+#
+# Add an entry ONLY when the phrase is compliant in its context and a
+# substring rule would otherwise flag it. One exact string per line.
+
+Are you the official Astound Broadband website?
+"ConnectWave" / "ConnectWave Communications LLC"  → ENTITY_LEGAL_NAME
+"1-800-555-0142"                                  → TFN_DISPLAY
+"1100 Signal Tower Drive, Suite 480, Austin, TX"  → ENTITY_ADDRESS
+"hello@connectwave-deals.com"                     → ENTITY_EMAIL
+the master spec's unverified "Radiate Holdings, L.P."

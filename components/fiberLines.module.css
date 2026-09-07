@@ -1,0 +1,28 @@
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Soft glowing cable underlay */
+.flowGlow { fill: none; stroke-width: 11; stroke-linecap: round; opacity: 0.16; }
+.flowGlowP { stroke: #8b5cf6; }
+.flowGlowT { stroke: #3ab54a; }
+
+/* Bright "data current" dashes that travel along the cable */
+.flow {
+  fill: none; stroke-width: 3.2; stroke-linecap: round;
+  stroke-dasharray: 54 360; opacity: 0.9;
+  animation: flDash 2.6s linear infinite;
+}
+.flowP { stroke: #c9a6ff; filter: drop-shadow(0 0 6px #8b5cf6); }
+.flowT { stroke: #8af0f0; filter: drop-shadow(0 0 6px #3ab54a); animation-delay: 0.9s; }
+@keyframes flDash { from { stroke-dashoffset: 414; } to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .flow { animation: none; opacity: 0; }
+}

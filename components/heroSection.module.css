@@ -177,7 +177,7 @@
      its legibility floor, so it wraps. Balance the two lines and
      tighten the leading so the wrap reads as intentional. */
   .badge {
-    font-size: 0.66rem; letter-spacing: 0.045em; line-height: 1.3;
+    font-size: 0.75rem; letter-spacing: 0.03em; line-height: 1.35;
     padding: 0.45rem 0.85rem; border-radius: 14px;
     text-align: center; text-wrap: balance;
   }
@@ -198,3 +198,30 @@
   .zipField input { min-height: 44px; }
   .cta { min-height: 44px; }
 }
+
+/* ---- §2.2 Hero stacking on mobile ----
+   Single centred column: eyebrow, H1, subline, trust chips, ZIP form,
+   microcopy. Body copy stays centred with a readable measure; the
+   chips wrap with a balanced gap. */
+@media (max-width: 759.98px) {
+  .hero .grid > div:first-child { text-align: center; }
+  .badge { margin-inline: auto; }
+  .sub { margin-inline: auto; max-width: 38ch; }
+  .perks { justify-content: center; gap: 0.5rem; }
+  .zip { margin-inline: auto; max-width: 26rem; }
+  .trust { text-align: center; }
+  .fine { text-align: center; }
+  .success { text-align: left; }
+}
+
+/* 320px: the narrowest supported viewport. */
+@media (max-width: 360px) {
+  .title { font-size: clamp(1.9rem, 10.5vw, 2.4rem); }
+  .perk { font-size: 0.75rem; padding: 0.4rem 0.6rem; }
+  .badge { font-size: 0.75rem; padding: 0.4rem 0.65rem; letter-spacing: 0.02em; }
+}
+
+/* §8.5 text floor — these two classes are scoped to this file, so the
+   floor block in home.module.css cannot reach them. */
+.fine { font-size: 0.75rem; }
+.floatLbl { font-size: 0.75rem; }

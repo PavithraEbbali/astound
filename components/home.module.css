@@ -1095,3 +1095,139 @@
   .chipLabel { flex: 1; min-width: 0; }
   .chipPrice { flex: none; white-space: nowrap; }
 }
+
+/* ============================================================
+   §2.10 STICKY MOBILE CALL BAR
+   Below 760px only. Not scroll-gated: painted on first render.
+   ============================================================ */
+.callBar { display: none; }
+
+@media (max-width: 759.98px) {
+  .callBar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+    display: flex; flex-direction: column; align-items: stretch; gap: 0.15rem;
+    padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(255, 255, 255, 0.97);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-top: 1px solid var(--cw-line);
+    box-shadow: 0 -6px 24px -12px rgba(29, 31, 32, 0.28);
+  }
+  .callBarLink {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    width: 100%; min-height: 48px; padding: 0.6rem 1rem; border-radius: 999px;
+    background: var(--cw-green); color: #fff;
+    font-family: var(--cw-font-display); font-weight: 800; font-size: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .callBarLink:active { background: var(--cw-green-600); }
+  .callBarNum { white-space: nowrap; }
+  .callBarHours {
+    text-align: center; font-size: 0.75rem; line-height: 1.3;
+    color: var(--cw-muted);
+  }
+  /* Reserve room so the bar never covers footer disclosures, the
+     CPRA link or the copyright line. */
+  .hasCallBar { padding-bottom: 6.5rem; }
+}
+
+/* ============================================================
+   §8.5 TEXT FLOOR — 12px minimum for body copy, microcopy and
+   disclaimers.
+
+   Eight distinct declarations sat between 9.6px and 11.8px. They are
+   raised here in one auditable block rather than edited in place, so
+   the floor is greppable and cannot silently regress. 0.75rem = 12px
+   at the 16px root.
+   ============================================================ */
+.banner { font-size: 0.78rem; }
+.brandTagline { font-size: 0.75rem; }
+.navPhone { font-size: 0.8rem; }
+.floatLbl { font-size: 0.75rem; }
+.fine { font-size: 0.75rem; }
+.lockupFine { font-size: 0.75rem; }
+.lockupLead { font-size: 0.78rem; }
+.tierMeta { font-size: 0.75rem; }
+.tierFlag { font-size: 0.75rem; }
+.offerBadge { font-size: 0.75rem; }
+.splitTag { font-size: 0.75rem; }
+.svcCardFeatured::after { font-size: 0.75rem; }
+.stateDetail { font-size: 0.8rem; }
+.faqNum { font-size: 0.875rem; }
+.agentTag { font-size: 0.75rem; }
+.footCol h4 { font-size: 0.75rem; }
+.addOnPrice { font-size: 0.95rem; }
+
+/* Small-screen overrides elsewhere in this file must not dip back
+   under the floor. */
+@media (max-width: 620px) {
+  .banner { font-size: 0.75rem; }
+  .navPhone { font-size: 0.78rem; }
+  .statePill { font-size: 0.82rem; }
+}
+@media (max-width: 420px) {
+  .navPhone { font-size: 0.75rem; }
+  .brandWord { font-size: 1.15rem; }
+}
+
+/* ---- §2.8 FAQ trigger ----
+   The trigger already uses flex/space-between/gap/text-left. The text
+   block needs an explicit min-width:0 so a long question wraps inside
+   its own column instead of pushing the chevron off the row. */
+.faqQText { min-width: 0; }
+.faqQText, .faqQ { overflow-wrap: anywhere; }
+
+/* ---- Rigid-width sweep (§8.5) ----
+   Decorative blur orbs carried fixed px sizes wider than a 320px
+   viewport. They are absolutely positioned and purely ornamental, so
+   they are capped to the viewport rather than removed. */
+@media (max-width: 759.98px) {
+  .ctaOrb1, .ctaOrb2 { width: min(70vw, 380px); height: min(70vw, 380px); }
+  .bundle::after { width: min(90vw, 480px); height: min(90vw, 480px); }
+  .offerCta { min-width: 0; width: 100%; }
+}
+
+/* ---- §2.8 accordion + nav touch targets ---- */
+@media (max-width: 900px) {
+  .faqQ { min-height: 44px; }
+}
+
+/* ---- §2.1 Header at 320px ----
+   Logo + call pill + burger overflowed a 320px row by 4px. The call
+   pill must stay visible (§2.1 forbids hiding it in the hamburger),
+   so the row is allowed to shrink instead: the logo truncates before
+   the CTA does. */
+@media (max-width: 380px) {
+  .navInner { gap: 0.4rem; padding-inline: 0.75rem; }
+  .logo { min-width: 0; flex: 1 1 auto; overflow: hidden; }
+  .brandWord { font-size: 1.05rem; }
+  .brandMark { padding-right: 1.25rem; }
+  .brandBurst { width: 1.15rem; height: 1.15rem; top: -0.28rem; }
+  .navCta { flex: 0 0 auto; gap: 0.35rem; }
+  .navPhone { padding: 0.4rem 0.55rem; gap: 0.25rem; }
+  .burger { min-width: 44px; padding: 0; }
+}
+
+/* ---- §2.10 call bar height cap ----
+   Spec caps the bar at 64px + safe-area inset. The hours line sat on
+   its own row and pushed it to 83px, so it now shares the row with
+   the number as secondary text. */
+@media (max-width: 759.98px) {
+  .callBar {
+    flex-direction: row; align-items: center; gap: 0.6rem;
+    padding: 0.4rem 0.7rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
+  }
+  .callBarLink { flex: 1 1 auto; min-height: 48px; }
+  .callBarHours {
+    flex: 0 1 auto; text-align: right; max-width: 8.5rem;
+    font-size: 0.75rem; line-height: 1.2;
+  }
+}
+@media (max-width: 400px) {
+  /* No room for the hours at 320px; the number is what matters. */
+  .callBarHours { display: none; }
+}
+
+/* Logo links keep a 44px target even after the 380px type step-down. */
+@media (max-width: 900px) {
+  .logo, .footLogo { min-height: 44px; align-items: center; }
+}

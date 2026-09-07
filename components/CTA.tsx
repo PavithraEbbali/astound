@@ -35,7 +35,7 @@ export default function CTA() {
           </p>
 
           <div className={s.ctaActions}>
-            <a href={TEL_HREF} className={`cw-btn ${s.ctaWhite}`}>
+            <a href={TEL_HREF} data-call-cta className={`cw-btn ${s.ctaWhite}`}>
               <span style={{ display: "inline-flex", gap: ".5rem", alignItems: "center" }}>
                 <Phone size={18} /> Call {TFN_DISPLAY}
               </span>

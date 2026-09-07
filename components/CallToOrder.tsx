@@ -26,6 +26,7 @@ export default function CallToOrder({
   return (
     <a
       href={TEL_HREF}
+      data-call-cta
       className={`${s.orderBtn} ${variant === "solid" ? s.orderBtnSolid : ""} ${className}`}
     >
       <Phone size={16} aria-hidden="true" />

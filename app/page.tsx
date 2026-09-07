@@ -10,6 +10,7 @@ import FAQ from "@/components/FAQ";
 import FinePrint from "@/components/FinePrint";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import StickyCallBar from "@/components/StickyCallBar";
 import {
   ENTITY_LEGAL_NAME,
   SITE_URL,
@@ -55,7 +56,10 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd) }}
       />
       <Nav />
-      <main>
+      {/* §8.5 overflow containment. `clip` rather than `hidden` so the
+          sticky header keeps working: `hidden` makes an ancestor a
+          scroll container and silently breaks position: sticky. */}
+      <main className="cw-main">
         <HeroSection />
         <Services />
         <Bundle />
@@ -68,6 +72,8 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
+      {/* §2.10 — renders on first paint, never scroll-gated. */}
+      <StickyCallBar />
     </>
   );
 }

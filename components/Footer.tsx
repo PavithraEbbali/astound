@@ -61,7 +61,7 @@ export default function Footer() {
             <a href={`mailto:${ENTITY_EMAIL}`} className={s.footAddr}>
               {ENTITY_EMAIL}
             </a>
-            <a href={TEL_HREF} className={s.footCall}>
+            <a href={TEL_HREF} data-call-cta className={s.footCall}>
               <Phone size={16} /> Call {TFN_DISPLAY}
             </a>
           </div>

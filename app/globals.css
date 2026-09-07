@@ -262,9 +262,28 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Section eyebrows wrap to two lines on narrow screens; ease them down. */
 @media (max-width: 620px) {
-  .cw-eyebrow { font-size: 0.66rem; letter-spacing: 0.06em; padding: 0.4rem 0.8rem; }
+  .cw-eyebrow { font-size: 0.75rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; }
   .cw-h2 { font-size: clamp(1.75rem, 7.5vw, 2.4rem); }
   .cw-lead { font-size: 0.98rem; }
   .cw-section { padding: clamp(2rem, 7vw, 3rem) 0; }
   .cw-shell { width: min(100% - 2rem, var(--cw-maxw)); }
+}
+
+/* ============================================================
+   §8.5 OVERFLOW CONTAINMENT
+
+   `overflow-x: clip` on the root and main. `clip` is used instead of
+   `hidden` because `hidden` turns the element into a scroll container,
+   which silently breaks `position: sticky` on the header. `clip`
+   contains overflow without that side effect.
+
+   body keeps `overflow-x: hidden` as the older-browser fallback.
+   ============================================================ */
+html { overflow-x: clip; }
+.cw-main { overflow-x: clip; }
+
+/* §2.10 — reserve space for the fixed mobile call bar so it never
+   covers the footer disclosures, the CPRA link or the copyright. */
+@media (max-width: 759.98px) {
+  body { padding-bottom: 6.5rem; }
 }

@@ -152,7 +152,7 @@ export default function HeroSection() {
                   <p>
                     <strong>ZIP {checked}</strong> — {zipWidget.result}
                   </p>
-                  <a href={TEL_HREF} className={`cw-btn cw-btn--primary ${s.zipCall}`}>
+                  <a href={TEL_HREF} data-call-cta className={`cw-btn cw-btn--primary ${s.zipCall}`}>
                     <Phone size={16} /> Call {TFN_DISPLAY}
                   </a>
                 </motion.div>

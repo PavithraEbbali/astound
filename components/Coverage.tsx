@@ -65,7 +65,7 @@ export default function Coverage() {
               ))}
             </ul>
 
-            <p style={{ fontSize: "0.74rem", color: "var(--cw-muted)", marginTop: "1rem" }}>
+            <p style={{ fontSize: "0.75rem", color: "var(--cw-muted)", marginTop: "1rem" }}>
               Astound may add or drop service areas at any time.
             </p>
           </ScrollReveal>
@@ -138,6 +138,7 @@ export default function Coverage() {
                       </p>
                       <a
                         href={TEL_HREF}
+                        data-call-cta
                         className="cw-btn cw-btn--primary"
                         style={{ marginTop: "0.9rem" }}
                       >
@@ -152,7 +153,7 @@ export default function Coverage() {
                 </AnimatePresence>
               </div>
 
-              <p style={{ fontSize: "0.72rem", color: "var(--cw-muted)", marginTop: "1rem" }}>
+              <p style={{ fontSize: "0.75rem", color: "var(--cw-muted)", marginTop: "1rem" }}>
                 {zipWidget.fccNote}{" "}
                 <a
                   href={zipWidget.fccUrl}

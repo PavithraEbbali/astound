@@ -49,7 +49,7 @@ export default function Nav() {
           </ul>
 
           <div className={s.navCta}>
-            <a href={TEL_HREF} className={s.navPhone}>
+            <a href={TEL_HREF} data-call-cta className={s.navPhone}>
               <Phone size={15} /> {TFN_DISPLAY}
             </a>
             <button
@@ -132,6 +132,7 @@ export default function Nav() {
               </ul>
               <a
                 href={TEL_HREF}
+                data-call-cta
                 className="cw-btn cw-btn--primary"
                 style={{ width: "100%", justifyContent: "center" }}
               >
